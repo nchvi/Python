@@ -27,18 +27,6 @@ while s != n:
         s = check(input())
         counter += 1
         continue
-counter = 1
 print('Вы угадали, поздравляем!, вам потребовалось', counter, 'попыток, чтобы угадать число!')
-
-next_try = input('Хотите сыграть еще раз? Введите "Да" или "Нет":   ').lower()
-while True:
-    if next_try != 'Да' or next_try != 'Нет':
-        next_try = input('Введите "Да" или "Нет":   ').lower()
-    else:
-        break
-
-if next_try == 'Да':
-    ### вызов функции еще раз
-
-
+counter = 1
 print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
