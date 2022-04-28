@@ -9,6 +9,7 @@ bad_symbols = 'il1Lo0O'
 
 chars = ''
 
+# Проверяем результаты да или нет
 def check_letters(n):
     while True:
         if n == 'да' or n == 'нет':
@@ -16,13 +17,18 @@ def check_letters(n):
         else:
             n = input('Введите "Да" или "Нет":  ')
             continue
+# Проверяем, что введенное значение является числом и больше нуля
 def check_digits(n):
     while True:
-        if n.isdigit() and int(n) > 0:
-            return n
-        else:
+        try: # Проверяем, можно ли введенное значение представить как integer
+            n = int(n)
+        except ValueError: # Если нельзя, то будет ошибка - обрабатываем
+            n = input('Введите число:  ') # Запрашиваем ввод еще раз и повторяем цикл
+            continue
+        if n <= 0:
             n = input('Введите число больше нуля:  ')
             continue
+        return n
 
 numbers = input('Сколько паролей будет нужно сгенерировать?:  ').strip()
 numbers = check_digits(numbers)
