@@ -2,7 +2,9 @@
 print('Привет! Эта программа поможет расшифровать шифр Цезаря на русском и английском языке!')
 
 russian_alph ='АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя'
+c_russian_alph = int(len(russian_alph) / 2)
 english_alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+c_english_alph = int(len(english_alph) / 2)
 
 def check_ans(n):
     while True:
@@ -62,15 +64,15 @@ def prog(res):
             for i in range(len(txt)):
                 if txt[i].isalpha():
                     if ord('A') <= ord(txt[i]) <= ord('Z'):
-                        if (ord(txt[i]) + step) > 90:
-                            res = res + chr((ord(txt[i]) + step) - 26)
+                        if (ord(txt[i]) + (step % c_english_alph)) > 90:
+                            res = res + chr((ord(txt[i]) + (step % c_english_alph)) - 26)
                         else:
-                            res = res + chr((ord(txt[i]) + step))
+                            res = res + chr((ord(txt[i]) + (step % c_english_alph)))
                     else:
-                        if (ord(txt[i]) + step) > 122:
-                            res = res + chr((ord(txt[i]) + step) - 26)
+                        if (ord(txt[i]) + (step % c_english_alph)) > 122:
+                            res = res + chr((ord(txt[i]) + (step % c_english_alph)) - 26)
                         else:
-                            res = res + chr((ord(txt[i]) + step))
+                            res = res + chr((ord(txt[i]) + (step % c_english_alph)))
                 else:
                     res = res + txt[i]
             print(res)
@@ -78,15 +80,15 @@ def prog(res):
             for i in range(len(txt)):
                 if txt[i].isalpha():
                     if ord('А') <= ord(txt[i]) <= ord('Я'):
-                        if (ord(txt[i]) + step) > 1071:
-                            res = res + chr((ord(txt[i]) + step) - 32)
+                        if (ord(txt[i]) + (step % c_russian_alph)) > 1071:
+                            res = res + chr((ord(txt[i]) + (step % c_russian_alph)) - 32)
                         else:
-                            res = res + chr((ord(txt[i]) + step))
+                            res = res + chr((ord(txt[i]) + (step % c_russian_alph)))
                     else:
-                        if (ord(txt[i]) + step) > 1103:
-                            res = res + chr((ord(txt[i]) + step) - 32)
+                        if (ord(txt[i]) + (step % c_russian_alph)) > 1103:
+                            res = res + chr((ord(txt[i]) + (step % c_russian_alph)) - 32)
                         else:
-                            res = res + chr((ord(txt[i]) + step))
+                            res = res + chr((ord(txt[i]) + (step % c_russian_alph)))
                 else:
                     res = res + txt[i]
             print(res)
@@ -96,15 +98,15 @@ def prog(res):
             for i in range(len(txt)):
                 if txt[i].isalpha():
                     if ord('A') <= ord(txt[i]) <= ord('Z'):
-                        if (ord(txt[i]) - step) < 65:
-                            res = res + chr((ord(txt[i]) - step) + 26)
+                        if (ord(txt[i]) - (step % c_english_alph)) < 65:
+                            res = res + chr((ord(txt[i]) - (step % c_english_alph)) + 26)
                         else:
-                            res = res + chr((ord(txt[i]) - step))
+                            res = res + chr((ord(txt[i]) - (step % c_english_alph)))
                     else:
-                        if (ord(txt[i]) - step) < 97:
-                            res = res + chr((ord(txt[i]) - step) + 26)
+                        if (ord(txt[i]) - (step % c_english_alph)) < 97:
+                            res = res + chr((ord(txt[i]) - (step % c_english_alph)) + 26)
                         else:
-                            res = res + chr((ord(txt[i]) - step))
+                            res = res + chr((ord(txt[i]) - (step % c_english_alph)))
                 else:
                     res = res + txt[i]
             print(res)
@@ -112,15 +114,15 @@ def prog(res):
             for i in range(len(txt)):
                 if txt[i].isalpha():
                     if ord('А') <= ord(txt[i]) <= ord('Я'):
-                        if (ord(txt[i]) - step) < 1040:
-                            res = res + chr((ord(txt[i]) - step) + 32)
+                        if (ord(txt[i]) - (step % c_russian_alph)) < 1040:
+                            res = res + chr((ord(txt[i]) - (step % c_russian_alph)) + 32)
                         else:
-                            res = res + chr((ord(txt[i]) - step))
+                            res = res + chr((ord(txt[i]) - (step % c_russian_alph)))
                     else:
-                        if (ord(txt[i]) - step) < 1072:
-                            res = res + chr((ord(txt[i]) - step) + 32)
+                        if (ord(txt[i]) - (step % c_russian_alph)) < 1072:
+                            res = res + chr((ord(txt[i]) - (step % c_russian_alph)) + 32)
                         else:
-                            res = res + chr((ord(txt[i]) - step))
+                            res = res + chr((ord(txt[i]) - (step % c_russian_alph)))
                 else:
                     res = res + txt[i]
             print(res)
