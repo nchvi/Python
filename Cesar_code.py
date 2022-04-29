@@ -117,7 +117,7 @@ def prog(res):
                         else:
                             res = res + chr((ord(txt[i]) - step))
                     else:
-                        if (ord(txt[i]) - step) > 1072:
+                        if (ord(txt[i]) - step) < 1072:
                             res = res + chr((ord(txt[i]) - step) + 32)
                         else:
                             res = res + chr((ord(txt[i]) - step))
