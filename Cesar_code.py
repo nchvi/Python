@@ -20,9 +20,6 @@ def check_dig(n):
         except ValueError: # Если нельзя, то будет ошибка - обрабатываем
             n = input('Введите число:  ') # Запрашиваем ввод еще раз и повторяем цикл
             continue
-        if n <= 0:
-            n = input('Введите число больше нуля:  ')
-            continue
         return n
 
 def check_language(txt):
